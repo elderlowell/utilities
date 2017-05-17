@@ -57,11 +57,21 @@ var _ = { };
 
   // Returns the index at which value can be found in the array, or -1 if value
   // is not present in the array.
+
   _.indexOf = function(array, target){
+    var result = -1;
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] === target) {
+        result = i;
+        break;
+      }
+    }
+    return result;
   };
 
   // Return all elements of an array that pass a truth test ('iterator' function argument)
   _.filter = function(collection, iterator) {
+    
   };
 
   // Return all elements of an array that don't pass a truth test (the 'iterator' function argument)
