@@ -93,6 +93,21 @@ var _ = { };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var newArray = [];
+    newArray.push(array[0]);
+    for (var i = 1; i < array.length; i++) {
+      var checker = false;
+      for (var j = 0; j < newArray.length; j++) {
+        if (array[i] === newArray[j]) {
+          checker = true;
+          break;
+        }
+      }
+      if (checker === false) {
+        newArray.push(array[i]);
+      }
+    }
+    return newArray;
   };
 
 
