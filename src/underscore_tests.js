@@ -113,6 +113,10 @@ var _ = { };
 
   // Return the results of applying an iterator to each element.
   _.map = function(array, iterator) {
+    for (var i = 0; i < array.length; i++) {
+      array[i] = iterator(array[i]);
+    }
+    return array;
   };
 
   // Takes an array of objects and returns and array of the values of
