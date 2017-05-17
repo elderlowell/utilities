@@ -82,6 +82,13 @@ var _ = { };
 
   // Return all elements of an array that don't pass a truth test (the 'iterator' function argument)
   _.reject = function(collection, iterator) {
+    var newArray = [];
+    for (var i = 0; i < collection.length; i++) {
+      if (iterator(collection[i]) !== true) {
+        newArray.push(collection[i]);
+      }
+    }
+    return newArray;
   };
 
   // Produce a duplicate-free version of the array.
