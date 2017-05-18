@@ -185,6 +185,19 @@ var _ = { };
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
   _.some = function(collection, iterator) {
+    for (var prop in collection) {
+      if (iterator === undefined) {
+        if (collection[prop]) {
+          return true;
+        }
+      }
+      else {
+        if (iterator(collection[prop])) {
+          return true;
+        }
+      }
+    }
+    return false;
   };
 
 
