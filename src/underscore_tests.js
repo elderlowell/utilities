@@ -167,6 +167,19 @@ var _ = { };
 
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
+    for (var prop in collection) {
+      if (iterator === undefined) {
+        if (!collection[prop]) {
+          return false;
+        }
+      }
+      else {
+        if (!iterator(collection[prop])) {
+          return false;
+        }
+      }
+    }
+    return true;
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
